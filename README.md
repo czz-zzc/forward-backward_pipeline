@@ -1,9 +1,9 @@
-总体思想1深度buf的作为缓冲
+#总体思想1深度buf的作为缓冲
 
 注意可以读/可以写
 与正在读/正在写的区别
 
-backward
+#backward
 目的：把ready打拍输出到上级，以优化ready的时序
 需要一个深度为1的buf，tready_i作为指示buf为空的标志信号
 
@@ -29,7 +29,7 @@ buf的empty怎么置高置低呢
 5.buf为非空，此时不会出现边写边读，因为tready_i为buf_empty此时不会出发写使能
 
 
-forward
+#forward
 目的：把valid和data打拍输出到下级，以优化两者的时序
 需要一个深度为1的buf，tvalid_o作为指示buf为满的标志信号，故数据肯定要先写进buf，然后再出来
 写使能为tready_i & tvalid_i
